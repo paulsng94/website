@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Unicef Comité de Paris</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#" [routerLink]="['home']" routerLinkActive="router-link-active" >Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#" [routerLink]="['suivientreprises']">Suivi Entreprises Amies</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf ="auth.isAuthenticated()">
+        <a class="nav-link" href="#" [routerLink]="['infouser']">Info User</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <button class="btn btn-outline-primary" (click)= "login()" *ngIf="!auth.isAuthenticated()" >Se connecter</button>
+      <button class="btn btn-outline-primary" (click)= "logout()" *ngIf ="auth.isAuthenticated()">Se déconnecter</button>
+    </span>
+  </div>
+</nav>
